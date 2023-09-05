@@ -1,5 +1,14 @@
 <p>home works!</p>
 
-<form [formGroup]="formImage" >
+<form 
+autocomplete="off"
+[formGroup]="imageForm"
+(ngSubmit)="imageFormSubmit()" >
+
+    <input type="file" formControlName="file" (change)="onFileChange($event)">
+
+    <button type="submit">Convertir Imagen</button>
+
+    <h1>{{base64}}</h1>
     
 </form>
