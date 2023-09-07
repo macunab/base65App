@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UploadEvent } from 'primeng/fileupload';
+
 
 @Component({
   selector: 'app-home',
@@ -16,6 +18,12 @@ export class HomeComponent {
     file: ['', [Validators.required]],
     fileSource: ['', [Validators.required]]
   });
+
+  uploadedFiles: any[] = [];
+
+  onUpload(event: UploadEvent) {
+    console.log(`${this.uploadedFiles}`)
+  }
 
   imageFormSubmit() {
 

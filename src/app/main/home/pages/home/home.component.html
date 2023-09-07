@@ -1,14 +1,27 @@
-<p>home works!</p>
+<div class="flex justify-content-center">
+    <h1>Convierte tus archivos a Base64</h1>
+</div>
 
-<form 
-autocomplete="off"
-[formGroup]="imageForm"
-(ngSubmit)="imageFormSubmit()" >
+<p-card class="flex justify-content-center">
+    <form 
+        autocomplete="off"
+        [formGroup]="imageForm"
+        (ngSubmit)="imageFormSubmit()" >
 
     <input type="file" formControlName="file" (change)="onFileChange($event)">
 
-    <button type="submit">Convertir Imagen</button>
+    <p-button label="To Base64" icon="pi pi-check" type="submit"></p-button>
+    </form>
+</p-card>
 
-    <h1>{{base64}}</h1>
-    
-</form>
+<h1>{{base64}}</h1>
+<div id="base64Result">
+
+</div>
+<div id="htmlResult">
+
+</div>
+<div id="cssResult">
+
+</div>
+
