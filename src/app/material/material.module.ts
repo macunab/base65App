@@ -5,6 +5,7 @@ import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { FileUploadModule } from 'primeng/fileupload';
 import { InputTextareaModule } from 'primeng/inputtextarea';
+import { MessagesModule } from 'primeng/messages';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
     ButtonModule,
     CardModule,
     FileUploadModule,
-    InputTextareaModule
+    InputTextareaModule,
+    MessagesModule
   ]
 })
 export class MaterialModule { }

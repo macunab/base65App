@@ -1,18 +1,20 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UploadEvent } from 'primeng/fileupload';
-
+import { Clipboard } from '@angular/cdk/clipboard';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
+  providers: [MessageService]
 })
 export class HomeComponent {
 
   base64: string | ArrayBuffer | null = '';
 
-  constructor( private fb: FormBuilder) {}
+  constructor( private fb: FormBuilder, private clipboard: Clipboard,
+      private messageService: MessageService) {}
 
   imageForm: FormGroup = this.fb.group({
     file: ['', [Validators.required]],
@@ -20,7 +22,6 @@ export class HomeComponent {
   });
   base64Html: string = '';
   base64CSS: string = '';
-
 
   imageFormSubmit() {
 
@@ -54,6 +55,14 @@ export class HomeComponent {
       });
        reader.readAsDataURL(file);
     })
+  }
+
+
+  // Copia el contenido al clipboard
+  copy(value: string | ArrayBuffer | null): void {
+    
+    this.clipboard.copy(String(value));
+    this.messageService.add({severity: 'success', detail: 'El resultado se ha copiado con exito!'});
   }
 
 }
