@@ -18,12 +18,9 @@ export class HomeComponent {
     file: ['', [Validators.required]],
     fileSource: ['', [Validators.required]]
   });
+  base64Html: string = '';
+  base64CSS: string = '';
 
-  uploadedFiles: any[] = [];
-
-  onUpload(event: UploadEvent) {
-    console.log(`${this.uploadedFiles}`)
-  }
 
   imageFormSubmit() {
 
@@ -51,6 +48,8 @@ export class HomeComponent {
       reader.addEventListener('loadend', () => {
         console.log(reader.result);
         this.base64 = reader.result;
+        this.base64Html = `<img src="${this.base64}" />`;
+        this.base64CSS = `background-image: url(${this.base64})`;
         resolve(reader.result);
       });
        reader.readAsDataURL(file);

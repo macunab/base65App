@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { FileUploadModule } from 'primeng/fileupload';
+import { InputTextareaModule } from 'primeng/inputtextarea';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { FileUploadModule } from 'primeng/fileupload';
   exports: [
     ButtonModule,
     CardModule,
-    FileUploadModule
+    FileUploadModule,
+    InputTextareaModule
   ]
 })
 export class MaterialModule { }

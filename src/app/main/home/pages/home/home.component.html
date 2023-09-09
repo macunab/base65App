@@ -14,14 +14,28 @@
     </form>
 </p-card>
 
-<h1>{{base64}}</h1>
-<div id="base64Result">
 
-</div>
-<div id="htmlResult">
-
-</div>
-<div id="cssResult">
-
+<div class="grid flex justify-content-center">
+    <div class="col-12 md:col-6 lg:col-3">
+        <div class="flex justify-content">
+            <h4 class="text-blue-300">Base64 String</h4>
+            <p-button icon="pi pi-copy" styleClass="p-button-rounded p-button-secondary p-button-text"></p-button>
+        </div>
+        <textarea rows="5" cols="43" pInputTextarea >{{ base64 }}</textarea>
+    </div>
+    <div class="col-3 md:col-6 lg:col-3">
+        <div class="flex justify-content-between">
+            <h4 class="text-green-300">Base64 HTML</h4>
+            <p-button icon="pi pi-copy" styleClass="p-button-rounded p-button-secondary p-button-text"></p-button>
+        </div>
+        <textarea rows="5" cols="43" pInputTextarea >{{ base64Html }}</textarea>
+    </div>
+    <div class="col-3 md:col-6 lg:col-3">
+        <div class="flex justify-content-between ">
+            <h4 class="text-orange-300">Base64 CSS</h4>
+            <p-button icon="pi pi-copy" styleClass="p-button-rounded p-button-secondary p-button-text"></p-button>
+        </div>
+        <textarea rows="5" cols="43" pInputTextarea >{{ base64CSS }}</textarea>
+    </div>
 </div>
 
