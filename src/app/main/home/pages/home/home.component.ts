@@ -25,8 +25,12 @@ export class HomeComponent {
 
   imageFormSubmit() {
 
-    const submitFile = this.imageForm.get('fileSource')?.value;
-    this.imgToBase64(submitFile);
+    const submitFile: File = this.imageForm.get('fileSource')?.value;
+    if(submitFile) {
+      this.imgToBase64(submitFile);
+    } else {
+      this.messageService.add({ severity: 'error', detail: 'Primero seleccione un archivo' });
+    }
   }
 
   // Detecta los cambios en el input file y guarda el file en el sourceFile
@@ -47,7 +51,6 @@ export class HomeComponent {
     return await new Promise<string | ArrayBuffer | null>((resolve) => {
       const reader = new FileReader();
       reader.addEventListener('loadend', () => {
-        console.log(reader.result);
         this.base64 = reader.result;
         this.base64Html = `<img src="${this.base64}" />`;
         this.base64CSS = `background-image: url(${this.base64})`;
