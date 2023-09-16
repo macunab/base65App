@@ -10,7 +10,7 @@
         [formGroup]="imageForm"
         (ngSubmit)="imageFormSubmit()" >
 
-    <input type="file" formControlName="file" (change)="onFileChange($event)">
+    <input type="file" accept="image/*" formControlName="file" (change)="onFileChange($event)">
 
     <p-button label="To Base64" icon="pi pi-check" type="submit"></p-button>
     </form>
